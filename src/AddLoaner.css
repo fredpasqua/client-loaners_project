@@ -1,0 +1,61 @@
+.loaner-form {
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+   justify-content: center;
+   align-items: center;
+}
+  
+  .loaner-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid rgb(174, 174, 174);
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 12px;
+  }
+
+  .loaner-submit {
+    background-color: #046eab;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    width: 50%;
+    margin-bottom: 10px;
+  }
+  label {
+    width: 75%;
+    font-size: 22px;
+    font-weight: bold;
+  }
+  
+
+
+
+.accordion-button {
+  background-color: rgb(234, 234, 234) !important;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+.accordion-button:not(.collapsed) {
+  color: #107be5;
+}
+
+
+
+
+
+
+
+
+
+    
+
