@@ -40,7 +40,7 @@ function InstrumentList() {
     () =>
       async function getLoaners() {
         await axios
-          .get("https://horntrax-api.herokuapp.com/loaners")
+          .get("https://horntrax-api.herokuapp.com/loaners/")
           .then((res) => setInstruments(res.data));
       },
     [updater]
