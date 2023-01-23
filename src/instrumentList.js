@@ -10,7 +10,6 @@ import DropDown from "./select";
 // import loaners from "./instruments.js";
 
 function InstrumentList() {
-  const [loading, setLoading] = useState(true);
   const [instruments, setInstruments] = useState([]);
   const [selectedInstrument, setSelectedInstrument] = useState({});
   const [query, setQuery] = useState([]);
@@ -43,8 +42,7 @@ function InstrumentList() {
       async function getLoaners() {
         await axios
           .get("https://horntrax-api.herokuapp.com/loaners/")
-          .then((res) => setInstruments(res.data))
-          .then(setLoading(false));
+          .then((res) => setInstruments(res.data));
       },
     [updater]
   );
@@ -120,12 +118,12 @@ function InstrumentList() {
 
   return (
     <>
-      {loading ? (
+      {instruments.length == 0 ? (
         <Audio
           height="80"
           width="80"
           radius="9"
-          color="green"
+          color="blue"
           ariaLabel="loading"
           wrapperStyle
           wrapperClass
