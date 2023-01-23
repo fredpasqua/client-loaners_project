@@ -40,7 +40,7 @@ function InstrumentList() {
     () =>
       async function getLoaners() {
         await axios
-          .get("http://localhost:3000/loaners/")
+          .get("https://horntrax-api.herokuapp.com/loaners")
           .then((res) => setInstruments(res.data));
       },
     [updater]
@@ -77,7 +77,7 @@ function InstrumentList() {
   };
   async function deleteLoaner(key) {
     await axios
-      .get(`http://localhost:3000/loaners/delete/${key}`)
+      .get(`https://horntrax-api.herokuapp.com/loaners/delete/${key}`)
       .then((res) => setDeleteMessage({ message: res.data, show: true }))
       .then((res) =>
         setTimeout(() => {
@@ -97,7 +97,10 @@ function InstrumentList() {
   const handleUpdateLoanerInfo = async (e, ID) => {
     e.preventDefault();
     try {
-      await axios.post(`http://localhost:3000/loaners/update/${ID}`, formData);
+      await axios.post(
+        `https://horntrax-api.herokuapp.com/loaners/update/${ID}`,
+        formData
+      );
       setFormData({
         type: "",
         brand: "",

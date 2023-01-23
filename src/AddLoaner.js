@@ -22,7 +22,10 @@ const AddLoaner = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3000/loaners/add", formData);
+      await axios.post(
+        "https://horntrax-api.herokuapp.com/loaners/add",
+        formData
+      );
       setMessage("Instrument addeded Succesfully!");
       setShow2(true);
       setTimeout(() => {
