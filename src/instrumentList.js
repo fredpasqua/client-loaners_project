@@ -36,7 +36,15 @@ function InstrumentList() {
   const forceUpdate = () => {
     setUpdater(updater + 1);
   };
-
+  useEffect(
+    () =>
+      async function getLoaners() {
+        await axios
+          .get("https://horntrax-api.herokuapp.com/loaners/")
+          .then((res) => setInstruments(res.data));
+      },
+    []
+  );
   useEffect(
     () =>
       async function getLoaners() {
@@ -118,7 +126,7 @@ function InstrumentList() {
 
   return (
     <>
-      {instruments.length === 0 ? (
+      {/* {instruments.length === 0 ? (
         <Audio
           height="80"
           width="80"
@@ -128,82 +136,83 @@ function InstrumentList() {
           wrapperStyle
           wrapperClass
         />
-      ) : (
-        <div className="loanersViewContainer">
-          <div className="top-container">
-            <AddLoaner forceUpdate={forceUpdate} />
+      ) :  */}
+      (
+      <div className="loanersViewContainer">
+        <div className="top-container">
+          <AddLoaner forceUpdate={forceUpdate} />
 
-            <div className="searchBar">
-              <div className="searchBarAndButton">
-                <input
-                  onChange={(event) => setQuery(event.target.value)}
-                  value={query}
-                  placeholder="search anything..."
-                ></input>
+          <div className="searchBar">
+            <div className="searchBarAndButton">
+              <input
+                onChange={(event) => setQuery(event.target.value)}
+                value={query}
+                placeholder="search anything..."
+              ></input>
 
-                <div className="clearButton">
-                  <Button onClick={() => clear()}>Clear</Button>
-                </div>
+              <div className="clearButton">
+                <Button onClick={() => clear()}>Clear</Button>
               </div>
-              <DropDown
-                data={instruments}
-                action={updateSelectedType}
-                selector={{ value: "type" }}
-              />
             </div>
-          </div>
-          <div className="cards-container">
-            {filteredInstruments?.map((instrument) => (
-              <Card
-                style={{
-                  borderRadius: "4px",
-                  width: "100vw",
-                  textAlign: "center",
-                  justifyContent: "center",
-                  marginLeft: "auto",
-                  marginRight: "auto",
-                  marginTop: "10px",
-                }}
-                key={instrument._id}
-              >
-                <Card.Body>
-                  <Card.Title>
-                    <Button
-                      className="btn-instrument btn-primary"
-                      onClick={() => {
-                        setShowModal(true);
-                        setSelectedInstrument(instrument);
-                        setFormData({
-                          type: instrument.type,
-                          brand: instrument.brand,
-                          serial: instrument.serial,
-                          barcode: instrument.barcode,
-                          location: instrument.location,
-                          dateLastServiced: instrument.dateLastServiced.slice(
-                            0,
-                            10
-                          ),
-                        });
-                      }}
-                    >
-                      {instrument.type}
-                    </Button>
-                  </Card.Title>
-
-                  <Card.Text>
-                    Brand: {instrument.brand}
-                    <br></br>
-                    Serial: {instrument.serial}
-                    <br></br>
-                    Location: {instrument.location}
-                    <br></br>
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-            ))}
+            <DropDown
+              data={instruments}
+              action={updateSelectedType}
+              selector={{ value: "type" }}
+            />
           </div>
         </div>
-      )}
+        <div className="cards-container">
+          {filteredInstruments?.map((instrument) => (
+            <Card
+              style={{
+                borderRadius: "4px",
+                width: "100vw",
+                textAlign: "center",
+                justifyContent: "center",
+                marginLeft: "auto",
+                marginRight: "auto",
+                marginTop: "10px",
+              }}
+              key={instrument._id}
+            >
+              <Card.Body>
+                <Card.Title>
+                  <Button
+                    className="btn-instrument btn-primary"
+                    onClick={() => {
+                      setShowModal(true);
+                      setSelectedInstrument(instrument);
+                      setFormData({
+                        type: instrument.type,
+                        brand: instrument.brand,
+                        serial: instrument.serial,
+                        barcode: instrument.barcode,
+                        location: instrument.location,
+                        dateLastServiced: instrument.dateLastServiced.slice(
+                          0,
+                          10
+                        ),
+                      });
+                    }}
+                  >
+                    {instrument.type}
+                  </Button>
+                </Card.Title>
+
+                <Card.Text>
+                  Brand: {instrument.brand}
+                  <br></br>
+                  Serial: {instrument.serial}
+                  <br></br>
+                  Location: {instrument.location}
+                  <br></br>
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          ))}
+        </div>
+      </div>
+      )
       <div className="reactModal">
         <ReactModal
           isOpen={showModal}
