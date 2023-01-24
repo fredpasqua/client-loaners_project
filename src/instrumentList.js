@@ -36,24 +36,15 @@ function InstrumentList() {
   const forceUpdate = () => {
     setUpdater(updater + 1);
   };
-  useEffect(
-    () =>
-      async function getLoaners() {
-        await axios
-          .get("https://horntrax-api.herokuapp.com/loaners/")
-          .then((res) => setInstruments(res.data));
-      },
-    []
-  );
-  useEffect(
-    () =>
-      async function getLoaners() {
-        await axios
-          .get("https://horntrax-api.herokuapp.com/loaners/")
-          .then((res) => setInstruments(res.data));
-      },
-    [updater]
-  );
+
+  useEffect(() => {
+    async function getLoaners() {
+      await axios
+        .get("https://horntrax-api.herokuapp.com/loaners/")
+        .then((res) => setInstruments(res.data));
+    }
+    getLoaners();
+  }, [updater]);
 
   //Drop Down Menu Calls this function to set state of SelecetedDepartments
   const updateSelectedType = (e) => {
