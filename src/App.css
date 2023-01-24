@@ -87,10 +87,6 @@ z-index: 0;
 }
 
 .useInfo {
-  display: flex;
-  flex-direction: column;
-  
-  padding: 40px;
  
 }
 

@@ -118,7 +118,7 @@ function InstrumentList() {
 
   return (
     <>
-      {instruments.length == 0 ? (
+      {instruments.length === 0 ? (
         <Audio
           height="80"
           width="80"
@@ -216,7 +216,6 @@ function InstrumentList() {
             overlay: {
               backgroundColor: "white",
               zIndex: 2,
-              width: "100%",
             },
             content: {
               backgroundColor: "#71c7ec",
@@ -245,11 +244,12 @@ function InstrumentList() {
           </button>
           <div>
             <div className="useInfo">
-              <h2 className="updateFormTitle">DETAIL VIEW</h2>
+              <h2 className="updateFormTitle">UPDATE VIEW</h2>
               <h2 className="updateFormTitle">Instrument: {formData.type}</h2>
               <InputGroup className="modal-text">
-                <Form.Label>Brand: {" " + formData.brand}</Form.Label>
+                <Form.Label>Brand: </Form.Label>
                 <Form.Control
+                  style={{ width: "100%" }}
                   type="text"
                   value={formData.brand}
                   onChange={handleChange}
@@ -257,9 +257,11 @@ function InstrumentList() {
                   placeholder={formData.brand}
                   aria-label="Update Brand of Instrument"
                   aria-describedby="basic-addon2"
-                ></Form.Control>{" "}
-                <Form.Label>Serial#: {" " + formData.serial}</Form.Label>
+                ></Form.Control>
+                <br></br>
+                <Form.Label style={{ width: "100px" }}>Serial#:</Form.Label>
                 <Form.Control
+                  style={{ width: "100%" }}
                   type="text"
                   value={formData.serial}
                   name="serial"
@@ -268,8 +270,9 @@ function InstrumentList() {
                   aria-label="Update serial of Instrument"
                   aria-describedby="basic-addon2"
                 ></Form.Control>{" "}
-                <Form.Label>Barcode: {" " + formData.barcode}</Form.Label>
+                <Form.Label>Barcode: </Form.Label>
                 <Form.Control
+                  style={{ width: "100%" }}
                   type="number"
                   value={formData.barcode}
                   name="barcode"
@@ -278,8 +281,9 @@ function InstrumentList() {
                   aria-label="Update barcode of Instrument"
                   aria-describedby="basic-addon2"
                 ></Form.Control>{" "}
-                <Form.Label>Location: {formData.location}</Form.Label>
+                <Form.Label>Location: </Form.Label>
                 <Form.Control
+                  style={{ width: "100%" }}
                   type="text"
                   value={formData.location}
                   name="location"
@@ -288,11 +292,9 @@ function InstrumentList() {
                   aria-label="Update location of Instrument"
                   aria-describedby="basic-addon2"
                 ></Form.Control>
-                <Form.Label>
-                  Date of last service:
-                  {" " + formData.dateLastServiced}
-                </Form.Label>
+                <Form.Label>Last serviced:</Form.Label>
                 <Form.Control
+                  style={{ width: "100%" }}
                   type="date"
                   name="dateLastServiced"
                   placeholder={formData.dateLastServiced}
