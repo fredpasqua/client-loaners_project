@@ -1,0 +1,21 @@
+
+.login_container {
+    background-color: rgb(241, 240, 240);
+    font-family: 'Montserrat', sans-serif;
+    width: auto;
+}
+.button {
+    padding: 10px;
+    margin: 10px;
+    background-color: rgb(226, 89, 89);
+    color: rgb(112, 106, 106);
+    margin: 20px;
+}
+button:hover {
+    box-shadow: rgba(10, 9, 9, 0.24) 0px 5px 10px;
+}
+.login_page {
+    display: flex;
+    justify-content: center;
+
+}
