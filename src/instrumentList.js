@@ -124,6 +124,9 @@ function InstrumentList() {
       ) : (
         <div className="loanersViewContainer">
           <div className="top-container">
+            <p className="welcome-message">
+              HORNTRAX welcomes {user.user.Username}!
+            </p>
             <AddLoaner forceUpdate={forceUpdate} />
 
             <div className="searchBar">

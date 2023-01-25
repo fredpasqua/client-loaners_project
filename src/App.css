@@ -99,7 +99,12 @@ font-size:18px;
 {
   font-size:18px;
 }
-
+.welcome-message {
+  font-size: 22px;
+  height: 50px;
+  background-color: white;
+  text-align: center;
+}
 
 
 
