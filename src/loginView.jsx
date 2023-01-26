@@ -4,7 +4,8 @@ import Button from "react-bootstrap/Button";
 import { Card, Container, CardGroup, Col, Row } from "react-bootstrap";
 import "./login-view.css";
 import axios from "axios";
-// import { Link } from "react-router-dom";
+import horntrax from "./Images/horntrax-ph-logo.jpg";
+import { Link } from "react-router-dom";
 
 export function LoginView(props) {
   const [username, setUsername] = useState("");
@@ -64,14 +65,18 @@ export function LoginView(props) {
         <Row>
           <Col lg={12}>
             <CardGroup>
-              <Card Card border="light" style={{ width: "25rem" }}>
+              <Card
+                Card
+                border="light"
+                style={{ width: "25rem", marginTop: "50px" }}
+              >
                 <Card.Body className="login_container">
                   <Card.Title>
-                    HORNTRAX: Track your instrument inventory from anywhere!
+                    <img src={horntrax} alt="logo" />
                   </Card.Title>
                   <Card.Title>
-                    Please login to begin using HORNTRAX!
-                    {/* Please Login or <Link to={`/register`}>Register </Link> */}
+                    Please Login or{" "}
+                    <a href={`https://www.google.com`}>Register</a>
                   </Card.Title>
 
                   <Form>
