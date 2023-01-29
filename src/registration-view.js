@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Row, Col, Button, Form, Card, CardGroup } from "react-bootstrap";
 import axios from "axios";
-import "./registration-view.scss";
+import "./registration-view.css";
 
-export function RegistrationView(props) {
+export function RegistrationView() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -48,10 +48,10 @@ export function RegistrationView(props) {
     if (isReq) {
       /* Send a request to the server for authentication */
       axios
-        .post(developmentEndpoint, {
-          Username: username,
-          Password: password,
-          Email: email,
+        .post("https://horntrax-api.herokuapp.com/users/add", {
+          username: username,
+          password: password,
+          email: email,
         })
         .then((response) => {
           const data = response.data;
@@ -65,8 +65,8 @@ export function RegistrationView(props) {
         });
     }
 
-    /* then call props.Registration(username) */
-    props.onRegistration(username);
+    // /* then call props.Registration(username) */
+    // props.onRegistration(username);
   };
 
   return (

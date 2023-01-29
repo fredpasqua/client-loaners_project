@@ -7,6 +7,7 @@ import AddLoaner from "./AddLoaner";
 import Alert from "react-bootstrap/Alert";
 import DropDown from "./select";
 import { LoginView } from "./loginView";
+import { RegistrationView } from "./registration-view";
 
 // import loaners from "./instruments.js";
 
