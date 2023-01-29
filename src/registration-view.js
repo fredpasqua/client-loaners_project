@@ -7,26 +7,27 @@ export function RegistrationView(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
-  const [birthday, setBirthday] = useState("");
+
   //Declare hook for each input
   const [usernameErr, setUsernameErr] = useState("");
   const [passwordErr, setPasswordErr] = useState("");
   const [emailErr, setEmailErr] = useState("");
-
+  //Declare variable for registration endpoint
+  const developmentEndpoint = "http://localhost:3000/users/add";
   const validate = () => {
     let isReq = true;
     if (!username) {
       setUsernameErr("Username Required");
       isReq = false;
     } else if (username.length < 5) {
-      setUsernameErr("Username must be 5 characters long.");
+      setUsernameErr("Username must be minimum 5 characters long.");
       isReq = false;
     }
     if (!password) {
       setPasswordErr("Password Required");
       isReq = false;
-    } else if (password.length < 6) {
-      setPasswordErr("Password must be 6 characters long");
+    } else if (password.length < 5) {
+      setPasswordErr("Password must be 5 characters long");
       isReq = false;
     }
     if (!email) {
@@ -43,21 +44,20 @@ export function RegistrationView(props) {
     let isReq;
     e.preventDefault();
     isReq = validate();
-    console.log(username, password, email, birthday);
+    console.log(username, password, email);
     if (isReq) {
       /* Send a request to the server for authentication */
       axios
-        .post("https://fredsflix.herokuapp.com/users", {
+        .post(developmentEndpoint, {
           Username: username,
           Password: password,
           Email: email,
-          Birthday: birthday,
         })
         .then((response) => {
           const data = response.data;
           console.log(data);
-          alert("Registration successful, please login!");
-          window.open("/myflix-v2", "_self");
+          alert("User added successfully, please login!");
+          //   window.open("/myflix-v2", "_self");
         })
         .catch((response) => {
           console.error(response);
@@ -124,18 +124,6 @@ export function RegistrationView(props) {
                       {emailErr}
                     </p>
                   )}
-                </Form.Group>
-
-                <Form.Group
-                  controlId="formBirthday"
-                  className="reg-form-inputs"
-                >
-                  <Form.Label>Birthday:</Form.Label>
-                  <Form.Control
-                    type="date"
-                    name="birthday"
-                    onChange={(e) => setBirthday(e.target.value)}
-                  />
                 </Form.Group>
                 <Button variant="info" type="submit" onClick={handleSubmit}>
                   Submit
