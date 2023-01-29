@@ -43,7 +43,9 @@ function InstrumentList() {
   useEffect(() => {
     async function getLoaners() {
       await axios
-        .get("https://horntrax-api.herokuapp.com/loaners/")
+        .get(
+          `https://horntrax-api.herokuapp.com/loaners/useridfind/${user.user._id}`
+        )
         .then((res) => setInstruments(res.data));
     }
     getLoaners();
@@ -121,14 +123,14 @@ function InstrumentList() {
   return (
     <>
       {user.length === 0 ? (
-        <LoginView setUser={setUser} />
+        <LoginView setUser={setUser} forceUpdate={forceUpdate} />
       ) : (
         <div className="loanersViewContainer">
           <div className="top-container">
             <p className="welcome-message">
               HORNTRAX welcomes {user.user.Username}!
             </p>
-            <AddLoaner forceUpdate={forceUpdate} />
+            <AddLoaner forceUpdate={forceUpdate} user={user} />
 
             <div className="searchBar">
               <div className="searchBarAndButton">
