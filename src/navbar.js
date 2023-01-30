@@ -18,13 +18,17 @@ function Navigate(props) {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto links">
-              <Link to="/register">Register</Link>
+              <Link className="link" to="/register">
+                Register
+              </Link>
               {props.user ? (
-                <Link to="/" onClick={props.onLoggedOut}>
+                <Link className="link" to="/" onClick={props.onLoggedOut}>
                   Log Out
                 </Link>
               ) : (
-                <Link to="/">Log In</Link>
+                <Link className="link" to="/">
+                  Log In
+                </Link>
               )}
             </Nav>
           </Navbar.Collapse>
