@@ -57,7 +57,7 @@ const AddLoaner = (props) => {
 
   return (
     <>
-      <Accordion>
+      <Accordion className="accordion">
         <Accordion.Item eventKey="0">
           <Accordion.Header>ADD AN INSTRUMENT</Accordion.Header>
           <Accordion.Body>

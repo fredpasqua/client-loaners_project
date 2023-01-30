@@ -17,5 +17,6 @@ button:hover {
 .login_page {
     display: flex;
     justify-content: center;
+    margin-top: 50px;
 
 }

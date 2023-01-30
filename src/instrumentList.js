@@ -8,6 +8,7 @@ import Alert from "react-bootstrap/Alert";
 import DropDown from "./select";
 import { LoginView } from "./loginView";
 import { RegistrationView } from "./registration-view";
+import Navigate from "./navbar";
 
 // import loaners from "./instruments.js";
 
@@ -80,6 +81,10 @@ function InstrumentList() {
   const clear = (e) => {
     setQuery("");
   };
+
+  const onLoggedOut = () => {
+    setUser("");
+  };
   async function deleteLoaner(key) {
     await axios
       .get(`https://horntrax-api.herokuapp.com/loaners/delete/${key}`)
@@ -122,6 +127,7 @@ function InstrumentList() {
 
   return (
     <>
+      <Navigate onLoggedOut={onLoggedOut} user={user} />
       {user.length === 0 ? (
         <LoginView setUser={setUser} forceUpdate={forceUpdate} />
       ) : (

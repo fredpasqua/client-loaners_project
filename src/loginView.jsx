@@ -77,8 +77,7 @@ export function LoginView(props) {
                     <img src={horntrax} alt="logo" />
                   </Card.Title>
                   <Card.Title>
-                    Please Login or{" "}
-                    <a href={`https://www.google.com`}>Register</a>
+                    Please Login or <Link to="/register">Register</Link>
                   </Card.Title>
 
                   <Form>
