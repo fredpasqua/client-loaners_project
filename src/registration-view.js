@@ -13,7 +13,6 @@ export function RegistrationView() {
   const [passwordErr, setPasswordErr] = useState("");
   const [emailErr, setEmailErr] = useState("");
   //Declare variable for registration endpoint
-  const developmentEndpoint = "http://localhost:3000/users/add";
   const validate = () => {
     let isReq = true;
     if (!username) {
