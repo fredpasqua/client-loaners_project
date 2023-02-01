@@ -22,7 +22,7 @@ const AddLoaner = (props) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
-      userid: user.user._id,
+      userid: user._id,
     });
   };
 
@@ -45,7 +45,7 @@ const AddLoaner = (props) => {
         serial: "",
         barcode: "",
         location: "",
-        userid: user.user._id,
+        userid: user._id,
       });
       props.forceUpdate();
     } catch (error) {
