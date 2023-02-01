@@ -35,19 +35,19 @@ export function LoginView(props) {
     return isReq;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const isReq = validate();
     if (isReq) {
       /* Send a request to the server for authentication */
-      axios
+      await axios
         .post(`https://horntrax-api.herokuapp.com/users/${username}`, {
-          password: password.password,
+          password: password,
         })
         .then((response) => {
           const data = response.data;
           console.log(data);
-          console.log(data.user._id);
+          console.log(data._id);
           props.setUser(data);
           props.forceUpdate();
         })

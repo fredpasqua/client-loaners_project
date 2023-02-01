@@ -15,7 +15,7 @@ const AddLoaner = (props) => {
     serial: "",
     barcode: "",
     location: "",
-    userid: user.user._id,
+    userid: user._id,
   });
 
   const handleChange = (e) => {
