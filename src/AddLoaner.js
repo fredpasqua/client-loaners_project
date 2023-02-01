@@ -4,23 +4,31 @@ import "./AddLoaner.css";
 import Alert from "react-bootstrap/Alert";
 import Accordion from "react-bootstrap/Accordion";
 const AddLoaner = (props) => {
+ 
+  const [show, setShow] = useState(false);
+  const [show2, setShow2] = useState(false);
+  const [message, setMessage] = useState("");
+  const [user, setUser] = useState(props.user);
   const [formData, setFormData] = useState({
     type: "",
     brand: "",
     serial: "",
     barcode: "",
     location: "",
+    userid: user._id,
   });
-  const [show, setShow] = useState(false);
-  const [show2, setShow2] = useState(false);
-  const [message, setMessage] = useState("");
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+      userid: user._id,
+    });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
       await axios.post(
         "https://horntrax-api.herokuapp.com/loaners/add",
@@ -37,6 +45,7 @@ const AddLoaner = (props) => {
         serial: "",
         barcode: "",
         location: "",
+        userid: user._id,
       });
       props.forceUpdate();
     } catch (error) {
@@ -48,7 +57,7 @@ const AddLoaner = (props) => {
 
   return (
     <>
-      <Accordion>
+      <Accordion className="accordion">
         <Accordion.Item eventKey="0">
           <Accordion.Header>ADD AN INSTRUMENT</Accordion.Header>
           <Accordion.Body>

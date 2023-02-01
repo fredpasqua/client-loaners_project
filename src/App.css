@@ -23,17 +23,12 @@ background-color:#046eab !important;
 }
 .btn-delete:hover {
   width: 50px !important;
-  background-color: rgb(253, 0, 0) !important;;
+  background-color: rgb(253, 0, 0) !important;
   }
 .btn-instrument {
   width: 175px;
 }
-.top-container {
 
-  position: sticky;
-  top: 0px;
-  z-index: 1;
-}
 h1 {
   text-align: center;
   font-family: opensans!important;
@@ -83,25 +78,36 @@ z-index: 0;
   border: solid 1px rgb(67, 67, 67);
   border-radius: 5px;
   width: fit-content;
-  
 }
-
-.useInfo {
- 
-}
-
 
 .form-label label {
+font-size:22px;
+padding: 10px;
 
-font-size:18px;
 }
 .modal-text input
 {
-  font-size:18px;
+  font-size:22px;
+  max-width: 300px;
+  overflow:scroll;
+  
+}
+.welcome-message {
+  font-size: 22px;
+  height: 50px;
+  background-color: white;
+  text-align: center;
 }
 
+.login_container {
+  background-color: white !important;
+  
+}
 
+.login_container img {
 
+margin-left: 25px;
+}
 
 
 

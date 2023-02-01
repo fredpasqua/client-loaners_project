@@ -6,11 +6,15 @@ import ReactModal from "react-modal";
 import AddLoaner from "./AddLoaner";
 import Alert from "react-bootstrap/Alert";
 import DropDown from "./select";
+import { LoginView } from "./loginView";
+import { RegistrationView } from "./registration-view";
+import Navigate from "./navbar";
 
 // import loaners from "./instruments.js";
 
 function InstrumentList() {
   const [instruments, setInstruments] = useState([]);
+  const [user, setUser] = useState("");
   const [selectedInstrument, setSelectedInstrument] = useState({});
   const [query, setQuery] = useState([]);
   const [showModal, setShowModal] = useState(false);
@@ -40,7 +44,9 @@ function InstrumentList() {
   useEffect(() => {
     async function getLoaners() {
       await axios
-        .get("https://horntrax-api.herokuapp.com/loaners/")
+        .get(
+          `https://horntrax-api.herokuapp.com/loaners/useridfind/${user._id}`
+        )
         .then((res) => setInstruments(res.data));
     }
     getLoaners();
@@ -74,6 +80,10 @@ function InstrumentList() {
 
   const clear = (e) => {
     setQuery("");
+  };
+
+  const onLoggedOut = () => {
+    setUser("");
   };
   async function deleteLoaner(key) {
     await axios
@@ -117,93 +127,88 @@ function InstrumentList() {
 
   return (
     <>
-      {/* {instruments.length === 0 ? (
-        <Audio
-          height="80"
-          width="80"
-          radius="9"
-          color="blue"
-          ariaLabel="loading"
-          wrapperStyle
-          wrapperClass
-        />
-      ) :  */}
-      (
-      <div className="loanersViewContainer">
-        <div className="top-container">
-          <AddLoaner forceUpdate={forceUpdate} />
+      <Navigate onLoggedOut={onLoggedOut} user={user} />
+      {user.length === 0 ? (
+        <LoginView setUser={setUser} forceUpdate={forceUpdate} />
+      ) : (
+        <div className="loanersViewContainer">
+          <div className="top-container">
+            <p className="welcome-message">
+              HORNTRAX welcomes {user.username}!
+            </p>
+            <AddLoaner forceUpdate={forceUpdate} user={user} />
 
-          <div className="searchBar">
-            <div className="searchBarAndButton">
-              <input
-                onChange={(event) => setQuery(event.target.value)}
-                value={query}
-                placeholder="search anything..."
-              ></input>
+            <div className="searchBar">
+              <div className="searchBarAndButton">
+                <input
+                  onChange={(event) => setQuery(event.target.value)}
+                  value={query}
+                  placeholder="search anything..."
+                ></input>
 
-              <div className="clearButton">
-                <Button onClick={() => clear()}>Clear</Button>
+                <div className="clearButton">
+                  <Button onClick={() => clear()}>Clear</Button>
+                </div>
               </div>
+              <DropDown
+                data={instruments}
+                action={updateSelectedType}
+                selector={{ value: "type" }}
+              />
             </div>
-            <DropDown
-              data={instruments}
-              action={updateSelectedType}
-              selector={{ value: "type" }}
-            />
+          </div>
+          <div className="cards-container">
+            {filteredInstruments?.map((instrument) => (
+              <Card
+                style={{
+                  borderRadius: "4px",
+                  width: "100vw",
+                  textAlign: "center",
+                  justifyContent: "center",
+                  marginLeft: "auto",
+                  marginRight: "auto",
+                  marginTop: "10px",
+                }}
+                key={instrument._id}
+              >
+                <Card.Body>
+                  <Card.Title>
+                    <Button
+                      className="btn-instrument btn-primary"
+                      onClick={() => {
+                        setShowModal(true);
+                        setSelectedInstrument(instrument);
+                        setFormData({
+                          type: instrument.type,
+                          brand: instrument.brand,
+                          serial: instrument.serial,
+                          barcode: instrument.barcode,
+                          location: instrument.location,
+                          dateLastServiced: instrument.dateLastServiced.slice(
+                            0,
+                            10
+                          ),
+                        });
+                      }}
+                    >
+                      {instrument.type}
+                    </Button>
+                  </Card.Title>
+
+                  <Card.Text>
+                    Brand: {instrument.brand}
+                    <br></br>
+                    Serial: {instrument.serial}
+                    <br></br>
+                    Location: {instrument.location}
+                    <br></br>
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            ))}
           </div>
         </div>
-        <div className="cards-container">
-          {filteredInstruments?.map((instrument) => (
-            <Card
-              style={{
-                borderRadius: "4px",
-                width: "100vw",
-                textAlign: "center",
-                justifyContent: "center",
-                marginLeft: "auto",
-                marginRight: "auto",
-                marginTop: "10px",
-              }}
-              key={instrument._id}
-            >
-              <Card.Body>
-                <Card.Title>
-                  <Button
-                    className="btn-instrument btn-primary"
-                    onClick={() => {
-                      setShowModal(true);
-                      setSelectedInstrument(instrument);
-                      setFormData({
-                        type: instrument.type,
-                        brand: instrument.brand,
-                        serial: instrument.serial,
-                        barcode: instrument.barcode,
-                        location: instrument.location,
-                        dateLastServiced: instrument.dateLastServiced.slice(
-                          0,
-                          10
-                        ),
-                      });
-                    }}
-                  >
-                    {instrument.type}
-                  </Button>
-                </Card.Title>
-
-                <Card.Text>
-                  Brand: {instrument.brand}
-                  <br></br>
-                  Serial: {instrument.serial}
-                  <br></br>
-                  Location: {instrument.location}
-                  <br></br>
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          ))}
-        </div>
-      </div>
-      )
+      )}
       <div className="reactModal">
         <ReactModal
           isOpen={showModal}
