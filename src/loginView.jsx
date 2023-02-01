@@ -41,7 +41,7 @@ export function LoginView(props) {
     if (isReq) {
       /* Send a request to the server for authentication */
       await axios
-        .post(`https://horntrax-api.herokuapp.com/users/${username}`, {
+        .post(`https://horntrax-api.herokuapp.com/users/login/${username}`, {
           password: password,
         })
         .then((response) => {
