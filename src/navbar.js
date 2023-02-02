@@ -16,7 +16,7 @@ function Navigate(props) {
         >
           <Container className="navbar-container">
             <Navbar.Brand>
-              <Link class="brand" to="/home">
+              <Link class="brand" to="/client-loaners_project">
                 HornTrax
               </Link>
             </Navbar.Brand>
@@ -27,7 +27,11 @@ function Navigate(props) {
                   Register
                 </Link>
                 {props.user ? (
-                  <Link className="link" to="/home" onClick={props.onLoggedOut}>
+                  <Link
+                    className="link"
+                    to="/client-loaners_project"
+                    onClick={props.onLoggedOut}
+                  >
                     Log Out
                   </Link>
                 ) : (

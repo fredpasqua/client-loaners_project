@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Audio } from "react-loader-spinner";
+
 import axios from "axios";
 import { Button, InputGroup, Form, Card } from "react-bootstrap";
 import ReactModal from "react-modal";
@@ -7,7 +7,7 @@ import AddLoaner from "./AddLoaner";
 import Alert from "react-bootstrap/Alert";
 import DropDown from "./select";
 import { LoginView } from "./loginView";
-import { RegistrationView } from "./registration-view";
+
 import Navigate from "./navbar";
 
 // import loaners from "./instruments.js";
