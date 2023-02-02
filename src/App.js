@@ -10,8 +10,9 @@ function App() {
     <div className="App">
       <Navigate />
       <Routes>
-        <Route path="/" element={<InstrumentList />} />
+        <Route path="home" element={<InstrumentList />} />
         <Route path="register" element={<RegistrationView />} />
+        <Route path="login" element={<InstrumentList />} />
       </Routes>
     </div>
   );
