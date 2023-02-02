@@ -14,7 +14,11 @@ function Navigate(props) {
         fixed="top"
       >
         <Container className="navbar-container">
-          <Navbar.Brand href="/">HornTrax</Navbar.Brand>
+          <Navbar.Brand>
+            <Link class="brand" to="/">
+              HornTrax
+            </Link>
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto links">
