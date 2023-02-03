@@ -133,11 +133,6 @@ function InstrumentList() {
       ) : (
         <div className="loanersViewContainer">
           <div className="top-container">
-            <p className="welcome-message">
-              HORNTRAX welcomes {user.username}!
-            </p>
-            <AddLoaner forceUpdate={forceUpdate} user={user} />
-
             <div className="searchBar">
               <div className="searchBarAndButton">
                 <input
@@ -156,6 +151,7 @@ function InstrumentList() {
                 selector={{ value: "type" }}
               />
             </div>
+            <AddLoaner forceUpdate={forceUpdate} user={user} />
           </div>
           <div className="cards-container">
             {filteredInstruments?.map((instrument) => (
@@ -195,7 +191,7 @@ function InstrumentList() {
                     </Button>
                   </Card.Title>
 
-                  <Card.Text>
+                  <Card.Text className="cardText">
                     Brand: {instrument.brand}
                     <br></br>
                     Serial: {instrument.serial}
@@ -249,8 +245,8 @@ function InstrumentList() {
           </button>
           <div>
             <div className="useInfo">
-              <h2 className="updateFormTitle">UPDATE VIEW</h2>
               <h2 className="updateFormTitle">Instrument: {formData.type}</h2>
+
               <InputGroup className="modal-text">
                 <Form.Label>Brand: </Form.Label>
                 <Form.Control
@@ -264,7 +260,7 @@ function InstrumentList() {
                   aria-describedby="basic-addon2"
                 ></Form.Control>
                 <br></br>
-                <Form.Label style={{ width: "100px" }}>Serial#:</Form.Label>
+                <Form.Label>Serial#:</Form.Label>
                 <Form.Control
                   style={{ width: "100%" }}
                   type="text"
@@ -309,6 +305,7 @@ function InstrumentList() {
                   aria-describedby="basic-addon2"
                 ></Form.Control>
               </InputGroup>
+
               <div className="updateFormButtonsContainer">
                 <Button
                   className="btn-loaner-update"
@@ -319,6 +316,7 @@ function InstrumentList() {
                   Update Information
                 </Button>
                 <Button
+                  className="deleteButton"
                   value={selectedInstrument._id}
                   onClick={(e) => deleteLoaner(e.target.value)}
                 >
