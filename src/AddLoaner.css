@@ -37,8 +37,10 @@
 
 
 
-.accordion-button {
-  background-color: rgb(234, 234, 234) !important;
+.accordion-button.collapsed{
+  /* background-color: rgb(234, 234, 234) !important; */
+  background-color:lightcoral;
+  font-size: 20px;
 }
 
 .accordion-button:focus {
@@ -47,10 +49,8 @@
 
 .accordion-button:not(.collapsed) {
   color: #107be5;
+  font-size: 20px;
 }
-
-
-
 
 
 

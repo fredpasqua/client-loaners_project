@@ -1,11 +1,14 @@
 body {
   background-image: url(./Images/music.jpg);
   background-size: auto;
-  
   height: 100vh;
   width: 100vw;
   opacity: 1;
-  
+}
+.top-container {
+ margin-top: 56px;
+
+
 }
 .btn {
   font-size: calc(10px + 2vmin);
@@ -27,7 +30,29 @@ background-color:#046eab !important;
   }
 .btn-instrument {
   width: 175px;
+  font-size:24px !important;
 }
+.updateFormButtonsContainer {
+  margin-top: 30px;
+  text-align: center;
+}
+.btn-loaner-update {
+  width: 250px;
+  font-size:24px !important;
+}
+.deleteButton {
+  width: 250px;
+  font-size:24px !important; 
+  background-color:rgb(171, 0, 0) !important ;
+  margin-top: 50px;
+}
+.deleteButton:hover{
+  background-color: red !important;
+
+}
+
+
+
 
 h1 {
   text-align: center;
@@ -46,9 +71,7 @@ border: none !important;
 z-index: 0;
 }
 
-.updateFormButtonsContainer {
-  text-align: center;
-}
+
 
 .updateFormTitle {
   text-align: center;
@@ -63,21 +86,25 @@ z-index: 0;
 .searchBar {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   width: 100vw;
-  
   justify-content: space-evenly;
   background-color:lightgray;
   border: 2px solid rgb(20, 116, 164);
   padding: 10px;
 }
-.searchBar Input {
-  height: 40px;
+.searchBar Input  {
+  height:40px;
   align-self: center;
+  border-radius: 5px;
+  font-size: 22px;
 }
 .types {
   border: solid 1px rgb(67, 67, 67);
+ 
+  max-width: 33vw;
   border-radius: 5px;
-  width: fit-content;
+
 }
 
 .form-label label {
@@ -109,7 +136,19 @@ padding: 10px;
 margin-left: 25px;
 }
 
+.brand {
+  text-decoration: none;
+  font-weight: bold;
+  color: lightcoral;
+}
 
+.cardText {
+  font-size: 22px;
+}
+.useInfo {
+  max-width: 450px;
+  text-align: left;
+}
 
 
 
