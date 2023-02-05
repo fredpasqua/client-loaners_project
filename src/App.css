@@ -86,21 +86,25 @@ z-index: 0;
 .searchBar {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   width: 100vw;
-  
   justify-content: space-evenly;
   background-color:lightgray;
   border: 2px solid rgb(20, 116, 164);
   padding: 10px;
 }
-.searchBar Input {
-  height: 40px;
+.searchBar Input  {
+  height:40px;
   align-self: center;
+  border-radius: 5px;
+  font-size: 22px;
 }
 .types {
   border: solid 1px rgb(67, 67, 67);
+ 
+  max-width: 33vw;
   border-radius: 5px;
-  width: fit-content;
+
 }
 
 .form-label label {
