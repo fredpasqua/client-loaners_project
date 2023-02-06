@@ -93,6 +93,13 @@ z-index: 0;
   border: 2px solid rgb(20, 116, 164);
   padding: 10px;
 }
+
+.instrumentCounter  {
+  font-weight: bold;
+  margin-right: 10px;
+  
+}
+
 .searchBar Input  {
   height:40px;
   align-self: center;

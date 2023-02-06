@@ -134,6 +134,7 @@ function InstrumentList() {
         <div className="loanersViewContainer">
           <div className="top-container">
             <div className="searchBar">
+              <p className="instrumentCounter">Total: {instruments.length}</p>
               <div className="searchBarAndButton">
                 <input
                   onChange={(event) => setQuery(event.target.value)}
