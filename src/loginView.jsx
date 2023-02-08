@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import { Card, Container, CardGroup, Col, Row } from "react-bootstrap";
 import "./login-view.css";
 import axios from "axios";
-import horntrax from "./Images/horntrax-ph-logo.jpg";
+import horntrax from "./Images/HornTrax-180.png";
 import { Link } from "react-router-dom";
 
 export function LoginView(props) {

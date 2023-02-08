@@ -3,6 +3,17 @@
     background-color: rgb(241, 240, 240);
     font-family: 'Montserrat', sans-serif;
     width: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;    
+}
+
+.login_container img {
+   text-align: center;
+   margin-right: 50px;
+   border-radius: 50%;
+   
+   
 }
 .button {
     padding: 10px;

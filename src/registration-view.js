@@ -3,7 +3,7 @@ import { Row, Col, Button, Form, Card, CardGroup } from "react-bootstrap";
 import axios from "axios";
 import "./registration-view.css";
 import Navigate from "./navbar";
-import horntrax from "./Images/horntrax-ph-logo.jpg";
+import horntrax from "./Images/HornTrax-180.png";
 export function RegistrationView() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -77,10 +77,11 @@ export function RegistrationView() {
           <CardGroup>
             <Card Card border="light">
               <Card.Body className="register_container">
+                <Card.Title>Please register a new user</Card.Title>
+
                 <Card.Title>
                   <img src={horntrax} alt="logo" />
                 </Card.Title>
-                <Card.Title>Please register to create your account.</Card.Title>
                 <Form>
                   <Form.Group
                     controlId="formUsername"
