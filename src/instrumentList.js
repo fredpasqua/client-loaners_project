@@ -287,6 +287,7 @@ function InstrumentList() {
                 <Form.Control
                   style={{ width: "100%" }}
                   type="text"
+                  size="lg"
                   value={formData.location}
                   name="location"
                   placeholder={formData.location}
