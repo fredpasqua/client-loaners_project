@@ -3,6 +3,7 @@ import { Row, Col, Button, Form, Card, CardGroup } from "react-bootstrap";
 import axios from "axios";
 import "./registration-view.css";
 import Navigate from "./navbar";
+import horntrax from "./Images/horntrax-ph-logo.jpg";
 export function RegistrationView() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -56,7 +57,7 @@ export function RegistrationView() {
           const data = response.data;
           console.log(data);
           alert("User added successfully, please login!");
-           window.open("/client-loaners_project", "_self");
+          window.open("/client-loaners_project", "_self");
         })
         .catch((response) => {
           console.error(response);
@@ -76,9 +77,11 @@ export function RegistrationView() {
           <CardGroup>
             <Card Card border="light">
               <Card.Body className="register_container">
+                <Card.Title>
+                  <img src={horntrax} alt="logo" />
+                </Card.Title>
+                <Card.Title>Please register to create your account.</Card.Title>
                 <Form>
-                  <h2>Register a new user:</h2>
-                  <p></p>
                   <Form.Group
                     controlId="formUsername"
                     className="reg-form-inputs"
@@ -126,9 +129,13 @@ export function RegistrationView() {
                       </p>
                     )}
                   </Form.Group>
-                  <Button variant="info" type="submit" onClick={handleSubmit}>
-                    Submit
-                  </Button>
+                  <div className="registerButton">
+                    {" "}
+                    <Button variant="info" type="submit" onClick={handleSubmit}>
+                      Submit
+                    </Button>
+                  </div>
+
                   <p></p>
                 </Form>
               </Card.Body>

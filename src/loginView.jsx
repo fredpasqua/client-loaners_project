@@ -107,14 +107,16 @@ export function LoginView(props) {
                         </p>
                       )}
                     </Form.Group>
-                    <Button
-                      className="button"
-                      variant="info"
-                      type="submit"
-                      onClick={handleSubmit}
-                    >
-                      Submit
-                    </Button>
+                    <div className="loginButton">
+                      <Button
+                        className="button"
+                        variant="info"
+                        type="submit"
+                        onClick={handleSubmit}
+                      >
+                        Submit
+                      </Button>
+                    </div>
                   </Form>
                 </Card.Body>
               </Card>
