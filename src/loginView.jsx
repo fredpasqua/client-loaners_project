@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import { Card, Container, CardGroup, Col, Row } from "react-bootstrap";
 import "./login-view.css";
 import axios from "axios";
-import horntrax from "./Images/HornTrax-180.png";
+import horntrax from "./Images/HornTrax.png";
 import { Link } from "react-router-dom";
 
 export function LoginView(props) {
@@ -73,19 +73,21 @@ export function LoginView(props) {
               >
                 <Card.Body className="login_container">
                   <Card.Title>
-                    <img src={horntrax} alt="logo" />
+                    Please Login or <Link to="/register">Register</Link>
                   </Card.Title>
                   <Card.Title>
-                    Please Login or <Link to="/register">Register</Link>
+                    <img src={horntrax} alt="logo" />
                   </Card.Title>
 
                   <Form>
                     <Form.Group controlId="formUsername">
-                      <Form.Label>Username:</Form.Label>
+                      <Form.Label className="formUsername">
+                        Username:
+                      </Form.Label>
                       <Form.Control
                         type="text"
                         onChange={(e) => setUsername(e.target.value)}
-                        placeholder="Enter a username"
+                        placeholder=""
                       />
                       {usernameErr && (
                         <p style={{ color: "red" }} className="font-italic">
@@ -95,11 +97,13 @@ export function LoginView(props) {
                     </Form.Group>
 
                     <Form.Group controlId="formPassword">
-                      <Form.Label>Password:</Form.Label>
+                      <Form.Label className="formPassword">
+                        Password:
+                      </Form.Label>
                       <Form.Control
                         type="password"
                         onChange={(e) => setPassword(e.target.value)}
-                        placeholder="password"
+                        placeholder=""
                       />
                       {passwordErr && (
                         <p style={{ color: "red" }} className="font-italic">

@@ -1,9 +1,17 @@
 import React, { useState } from "react";
-import { Row, Col, Button, Form, Card, CardGroup } from "react-bootstrap";
+import {
+  Row,
+  Col,
+  Button,
+  Form,
+  Card,
+  CardGroup,
+  Container,
+} from "react-bootstrap";
 import axios from "axios";
 import "./registration-view.css";
 import Navigate from "./navbar";
-import horntrax from "./Images/HornTrax-180.png";
+import horntrax from "./Images/HornTrax.png";
 export function RegistrationView() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -72,8 +80,9 @@ export function RegistrationView() {
   return (
     <>
       <Navigate></Navigate>
-      <Row className="mt-5">
-        <Col className="registration" sm={10} md={8}>
+      <Container className="registration"></Container>
+      <Row>
+        <Col lg={6} md={8} sm={10} className="cardRegistration">
           <CardGroup>
             <Card Card border="light">
               <Card.Body className="register_container">
@@ -90,6 +99,7 @@ export function RegistrationView() {
                     <Form.Label>Username:</Form.Label>
                     <Form.Control
                       type="text"
+                      placeholder="atleast 3 characters long"
                       value={username}
                       onChange={(e) => setUsername(e.target.value)}
                     />
@@ -107,6 +117,7 @@ export function RegistrationView() {
                     <Form.Label>Password:</Form.Label>
                     <Form.Control
                       type="password"
+                      placeholder="atleast 5 characters long"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                     />
@@ -121,6 +132,7 @@ export function RegistrationView() {
                     <Form.Label>Email:</Form.Label>
                     <Form.Control
                       type="email"
+                      placeholder="must be a unique email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                     />

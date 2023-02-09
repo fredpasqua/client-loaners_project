@@ -1,6 +1,10 @@
+.login_page {
+    display: flex;
+    justify-content: center;
+    margin-top: 120px;
+}
 
 .login_container {
-    background-color: rgb(241, 240, 240);
     font-family: 'Montserrat', sans-serif;
     width: auto;
     display: flex;
@@ -10,11 +14,10 @@
 
 .login_container img {
    text-align: center;
-   margin-right: 50px;
-   border-radius: 50%;
-   
-   
+   height: 200px; 
 }
+
+
 .button {
     padding: 10px;
     margin: 10px;
@@ -23,14 +26,7 @@
     margin: 20px;
 }
 
-.login_page {
-    display: flex;
-    justify-content: center;
 
-    
-    margin-top: 120px;
-
-}
 .loginButton {
     text-align: center;
     margin-top: 10px;
@@ -41,8 +37,9 @@
     font-size: 25px;
     color: rgb(222, 222, 222);
 }
+
 .loginButton Button:hover{
     color:rgb(255, 255, 255);
     box-shadow: rgba(10, 9, 9, 0.24) 0px 5px 10px;
-
 }
+

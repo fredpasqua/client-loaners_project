@@ -1,9 +1,10 @@
 body {
   background-image: url(./Images/music.jpg);
-  background-size: auto;
+  background-size:130%;
+
   height: 100vh;
   width: 100vw;
-  opacity: 1;
+  opacity:1;
 }
 .top-container {
  margin-top: 56px;
