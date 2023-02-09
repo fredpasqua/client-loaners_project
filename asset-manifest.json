@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/client-loaners_project/static/css/main.99b8329b.css",
+    "main.css": "/client-loaners_project/static/css/main.a567650b.css",
     "main.js": "/client-loaners_project/static/js/main.acc61024.js",
     "static/js/787.af0c2ae3.chunk.js": "/client-loaners_project/static/js/787.af0c2ae3.chunk.js",
     "static/media/music.jpg": "/client-loaners_project/static/media/music.8341c78eefdf0b1344ec.jpg",
     "static/media/HornTrax.png": "/client-loaners_project/static/media/HornTrax.23d7c509f4d8a5332450.png",
     "index.html": "/client-loaners_project/index.html",
-    "main.99b8329b.css.map": "/client-loaners_project/static/css/main.99b8329b.css.map",
+    "main.a567650b.css.map": "/client-loaners_project/static/css/main.a567650b.css.map",
     "main.acc61024.js.map": "/client-loaners_project/static/js/main.acc61024.js.map",
     "787.af0c2ae3.chunk.js.map": "/client-loaners_project/static/js/787.af0c2ae3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.99b8329b.css",
+    "static/css/main.a567650b.css",
     "static/js/main.acc61024.js"
   ]
 }
